@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "nodenext",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "baseUrl": "./",
+    "esModuleInterop": true,
+    "strict": true,
+    "moduleResolution": "nodenext",
+    "skipLibCheck": true
+  },
+  "include": ["src", "dist"],
+  "exclude": ["node_modules"]
+}

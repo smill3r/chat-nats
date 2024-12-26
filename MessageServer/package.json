@@ -1,0 +1,25 @@
+{
+  "name": "chat-nats",
+  "version": "1.0.0",
+  "description": "Chat application powered by nats",
+  "main": "dist/app.js",
+  "scripts": {
+    "build": "npx tsc",
+    "start": "npx tsc && node dist/app.js",
+    "dev": "nodemon --ignore database.json src/app.ts"
+  },
+  "author": "Jose Smiller",
+  "license": "ISC",
+  "dependencies": {
+    "@nats-io/nats-core": "^3.0.0-48",
+    "@nats-io/transport-node": "^3.0.0-33",
+    "lokijs": "^1.5.12",
+    "socket.io": "^4.8.1"
+  },
+  "devDependencies": {
+    "@types/lokijs": "^1.5.14",
+    "@types/node": "^22.10.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2"
+  }
+}
