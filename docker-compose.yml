@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  nats:
+    image: nats:latest
+    ports:
+      - "4222:4222"
+      - "8222:8222"
+    environment:
+      - NATS_USER=myuser
+      - NATS_PASSWORD=mypassword
+    networks:
+      chat:
+    volumes:
+      - nats_data:/data
+
+  server:
+    build: ./MessageServer
+    depends_on:
+      - nats
+    ports:
+      - "3000:3000"
+    environment:
+      - NATS_URL=nats://nats:4222
+      - NATS_USER=myuser
+      - NATS_PASSWORD=mypassword
+    networks:
+      chat:
+
+  client:
+    build: ./Client
+    depends_on:
+      - nats
+    ports:
+      - "8080:80"
+    networks:
+      chat:
+
+networks:
+  chat:
+    driver: bridge
+volumes:
+  nats_data:
